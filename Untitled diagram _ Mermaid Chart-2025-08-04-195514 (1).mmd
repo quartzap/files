@@ -1,0 +1,29 @@
+flowchart TD
+  Start["Start"]
+  RG["Requirement Gathering\n(Business Needs, Use Cases,\nStakeholder Alignment)"]
+  PI["Prioritization / Backlog Grooming\n(Agile Epics, User Stories,\nRisk Assessment)"]
+  AD["Architecture & Design\n(Compliance, Ethical/Safety Review,\nPII/Sensitive Data Filtering,\nModel Selection, Evaluation Plan)"]
+  DEV["Development\n(Agile Iterations/Sprints,\nSecure Coding, Data Versioning,\nReproducible Pipelines,\nCode Reviews, Observability Hooks)"]
+  TEST["Testing\n(Unit, Integration, Functional,\nAutomated/Manual, Model Evaluation,\nPrompt Injection/Adversarial Testing,\nBias/Fairness/Explainability, Security Scans)"]
+  SEC["Security & Privacy Checks\n(Threat Modeling, Red Teaming,\nPII Leakage Testing, Output Filtering,\nAccess Controls)"]
+  PREDEP["Pre-Deployment Checks\n(Model Cards, Governance,\nAudit Readiness, Shadow/Canary Deploys,\nFeature Flags, Rollback Plan)"]
+  DEP["Deployment\n(CI/CD Pipelines, Containerization,\nApproval Gates, Change Auditing)"]
+  EVA["Post-Deployment Evaluation\n(User Acceptance, Feedback Loop,\nBusiness Metric Validation,\nResponsible AI Checklist)"]
+  MON["Monitoring & Observability\n(Drift Detection, Latency, Throughput,\nError Handling, Logging, Alerting,\nRetraining/Continuous Improvement)"]
+  End["End"]
+
+  Start --> RG
+  RG --> PI
+  PI --> AD
+  AD --> DEV
+  DEV --> TEST
+  TEST --> SEC
+  SEC --> PREDEP
+  PREDEP --> DEP
+  DEP --> EVA
+  EVA --> MON
+  MON -->|Continuous Loop| PI
+  MON --> End
+
+  classDef mainstep fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+  class RG,PI,AD,DEV,TEST,SEC,PREDEP,DEP,EVA,MON mainstep
